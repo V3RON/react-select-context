@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "target": "esnext",
+    "module": "esnext"
+  },
+  "include": ["./src/**/*", "./tests/**/*"]
+}

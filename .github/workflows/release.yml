@@ -1,0 +1,29 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+      - next
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - name: Install
+        uses: ./.github/composite-actions/install
+
+      - name: Test
+        run: yarn test
+
+      - name: Release
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
